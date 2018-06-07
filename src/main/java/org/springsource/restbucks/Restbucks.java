@@ -18,21 +18,26 @@ package org.springsource.restbucks;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Import;
 import org.springframework.hateoas.UriTemplate;
 import org.springframework.hateoas.hal.CurieProvider;
 import org.springframework.hateoas.hal.DefaultCurieProvider;
 import org.springframework.scheduling.annotation.EnableAsync;
+import springfox.documentation.spring.data.rest.configuration.SpringDataRestConfiguration;
+import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
 /**
  * Central application class containing both general application and web configuration as well as a main-method to
  * bootstrap the application using Spring Boot.
- * 
+ *
  * @see #main(String[])
  * @see SpringApplication
  * @author Oliver Gierke
  */
 @SpringBootApplication
 @EnableAsync
+@EnableSwagger2
+@Import(SpringDataRestConfiguration.class)
 public class Restbucks {
 
 	public static String CURIE_NAMESPACE = "restbucks";
@@ -43,7 +48,7 @@ public class Restbucks {
 
 	/**
 	 * Bootstraps the application in standalone mode (i.e. java -jar).
-	 * 
+	 *
 	 * @param args
 	 */
 	public static void main(String[] args) {

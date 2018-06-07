@@ -36,11 +36,11 @@ import org.springframework.web.context.WebApplicationContext;
 
 /**
  * Base class to derive concrete web test classes from.
- * 
+ *
  * @author Oliver Gierke
  */
 @RunWith(SpringRunner.class)
-@SpringBootTest
+@SpringBootTest(classes = Restbucks.class)
 public abstract class AbstractWebIntegrationTest {
 
 	@Autowired WebApplicationContext context;
@@ -58,7 +58,7 @@ public abstract class AbstractWebIntegrationTest {
 
 	/**
 	 * Creates a {@link ResultMatcher} that checks for the presence of a link with the given rel.
-	 * 
+	 *
 	 * @param rel
 	 * @return
 	 */
@@ -68,7 +68,7 @@ public abstract class AbstractWebIntegrationTest {
 
 	/**
 	 * Creates a {@link ResultMatcher} that checks for the non-presence of a link with the given rel.
-	 * 
+	 *
 	 * @param rel
 	 * @return
 	 */
@@ -90,7 +90,7 @@ public abstract class AbstractWebIntegrationTest {
 			this.present = present;
 		}
 
-		/* 
+		/*
 		 * (non-Javadoc)
 		 * @see org.springframework.test.web.servlet.ResultMatcher#match(org.springframework.test.web.servlet.MvcResult)
 		 */
